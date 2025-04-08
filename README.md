@@ -1,55 +1,26 @@
-🍽️ RockyGo Restaurant – Cypress Test Scripts
-This repository contains automated test scripts using Cypress for the RockyGo Restaurant app. These scripts are written to validate core restaurant-side functionalities, ensuring app reliability and a smooth user experience.
+# 🍽️ RockyGo Restaurant – Cypress Test Scripts
 
-✅ Test Coverage
-🛠️ Login and authentication flow
+This repository contains automated test scripts written in [Cypress](https://www.cypress.io/) for the **RockyGo Restaurant** platform. These scripts are designed to validate key restaurant-side functionalities and ensure system stability.
 
-📋 Order management
+---
 
-🚚 Delivery status updates
+## ✅ Test Coverage
 
-📊 Dashboard and metrics
+- 🔐 Login and Authentication
+- 📋 Order Management
+- 🚚 Delivery Status Updates
+- 📊 Dashboard & Metrics
+- ⚙️ Restaurant Settings & Profile Management
 
-⚙️ Restaurant settings and profile management
+---
 
-🛠️ Tools & Frameworks
-Cypress – End-to-end testing framework
+## 🛠️ Tools & Frameworks
 
-cypress-file-upload – For testing file inputs (image uploads)
+- **Cypress** – End-to-end testing framework  
+- **cypress-file-upload** – File input testing  
+- **Node.js & npm** – Dependency management and execution
 
-Node.js & npm – Package management and script execution
+---
 
-📁 Project Structure
-bash
-Copy
-Edit
-cypress/
-  ├── fixtures/           # Sample data and test files
-  ├── integration/        # Main test cases
-  ├── support/            # Custom commands and config
-  └── screenshots/        # Screenshots from failed tests
-🚀 How to Run Tests
-Install dependencies
+## 📁 Project Structure
 
-bash
-Copy
-Edit
-npm install
-Open Cypress Test Runner
-
-bash
-Copy
-Edit
-npx cypress open
-Run tests in headless mode
-
-bash
-Copy
-Edit
-npx cypress run
-📌 Notes
-Ensure the RockyGo Restaurant app (web) is running in the expected test environment.
-
-Tests may rely on seeded or dummy accounts for consistency.
-
-File uploads should be placed in the cypress/fixtures/ directory.
