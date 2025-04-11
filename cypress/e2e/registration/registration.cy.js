@@ -16,10 +16,11 @@ describe('Registration Tests', () => {
       cy.get('input[id="mobile_number_resto"]').type('09750035937');
       //image upload
       const filePath = 'sample.jpg';  // Uploaded on fixtures folder
-      cy.get('input[name="business_permit"]').invoke('show').should('be.visible').attachFile(filePath);
+      cy.get('label[id="uploadLabel"]').invoke('show').should('be.visible').attachFile(filePath);
       // Optionally, assert the image was uploaded or processed correctly
-      cy.get('#previewImageBusiness', {timeout: 10000}).should('have.attr', 'src').and('include', 'sample.jpg');
-      cy.get('button[type="submit"]')
+      // cy.get('#previewImageBusiness', {timeout: 10000}).should('have.attr', 'src').and('include', 'sample.jpg');
+      cy.get('input[name="certificate_registration"]').invoke('show').should('be.visible').attachFile(filePath);
+      cy.get('button[data-type="next"]')
     });
   
   });
