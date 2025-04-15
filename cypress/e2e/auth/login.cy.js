@@ -1,3 +1,8 @@
+import { loginObjects } from "../../pageObjects/pageObjects";
+
+//Configs
+const creds = Cypress.env('creds');
+
 describe('Authentication Tests', () => {
     beforeEach(() => {
       // Visit the page before each test
@@ -5,15 +10,15 @@ describe('Authentication Tests', () => {
     });
   
     it('should login properly', () => {
-      cy.get('input[id="userEmail"]').type('ysabel.trackerteer@gmail.com');
-      cy.get('input[name="password"]').type('Test1234!');
-      cy.get('button[type="submit"]')
+      cy.get(loginObjects.usernameField).type(creds.standardUser);
+      cy.get(loginObjects.passwordField).type(creds.password);
+      cy.clickLoginButton();
     });
   
     it('should not login properly', () => {
-        cy.get('input[name="email"]').type('ysabel.trackerteer@gmail.com');
-        cy.get('input[name="password"]').type('xxxx');
-        cy.get('button[type="submit"]')
+        cy.get(loginObjects.usernameField).type(creds.problemUser);
+        cy.get(loginObjects.passwordField).type(creds.password);
+        cy.clickLoginButton();
       });
   });
   

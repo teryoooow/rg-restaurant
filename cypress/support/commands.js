@@ -23,9 +23,17 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+import { loginObjects } from "../pageObjects/pageObjects";
+
+Cypress.Commands.add('clickLoginButton', () => {
+    cy.get(loginObjects.loginButton).first().click();
+})
 
 Cypress.on('uncaught:exception', (err, runnable) => {
     // return false to prevent Cypress from failing the test
     return false;
   });
+
+  
+  
   
