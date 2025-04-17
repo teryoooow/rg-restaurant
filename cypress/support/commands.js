@@ -23,7 +23,7 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
-import { loginObjects, regObjects, restoLocationObjects } from "../pageObjects/pageObjects";
+import { loginObjects, regObjects, restoLocationObjects, riderRegObjects } from "../pageObjects/pageObjects";
 // const filePath = 'sample.jpg';  // Uploaded on fixtures folder
 
 Cypress.Commands.add('clickLoginButton', () => {
@@ -38,12 +38,9 @@ Cypress.Commands.add('selectCountry', () => {
     cy.get(regObjects.countryCodeField).select('Philippines');
 })
 
-Cypress.Commands.add('clickBusinessPermit', () => {
+Cypress.Commands.add('submitPermits', () => {
     cy.get(regObjects.businessPermitField).should('be.visible').selectFile('cypress/fixtures/sample.jpg');
-})
-
-Cypress.Commands.add('clickCertificateOfRegistration', () => {
-  cy.get(regObjects.certRegField).should('be.visible').selectFile('cypress/fixtures/sample.jpg');
+    cy.get(regObjects.certRegField).should('be.visible').selectFile('cypress/fixtures/sample.jpg');
 });
 
 Cypress.Commands.add('clickNextButton', () => {
@@ -63,6 +60,22 @@ Cypress.Commands.add('agreeAndSubmit', () => {
 Cypress.Commands.add('assertSuccess', () => {
   cy.get(restoLocationObjects.confirmation).should('include.text', 'Success');
 })
+
+Cypress.Commands.add('clickRiderRegButton', () => {
+  cy.get(riderRegObjects.riderRegButton).click();
+})
+
+Cypress.Commands.add('selectCountryCode', () => {
+  cy.get(riderRegObjects.countryField).select('Philippines');
+})
+
+Cypress.Commands.add('attachDocu', () => {
+  cy.get(riderRegObjects.driverlcField).should('be.visible').selectFile('cypress/fixtures/sample.jpg');
+  cy.get(riderRegObjects.roadTaxField).should('be.visible').selectFile('cypress/fixtures/sample.jpg');
+  cy.get(riderRegObjects.certRegField).should('be.visible').selectFile('cypress/fixtures/sample.jpg');
+  cy.get(riderRegObjects.vaccField).should('be.visible').selectFile('cypress/fixtures/sample.jpg');
+})
+
 
 Cypress.on('uncaught:exception', (err, runnable) => {
     // return false to prevent Cypress from failing the test

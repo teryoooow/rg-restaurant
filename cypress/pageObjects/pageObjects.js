@@ -34,3 +34,32 @@ export const restoLocationObjects = {
     submitButton: 'button#submit-btn',
     confirmation: 'div.swal2-popup swal2-modal swal2-icon-error swal2-show'
 }
+
+export const riderRegObjects = {
+    riderRegButton: 'button[data-type="rider"]',
+    firstNameField: 'div.flex-1 input#firstname',
+    lastNameField: 'div.flex-1 input#lastname_rider',
+    emailField: 'div.flex-1 input#rider-grid-email',
+    countryField: 'select#area_code_rider',
+    contactNumberField: 'div.flex-1 input#mobile_number_rider',
+    areaField: 'input#rider_input',
+    houseNumField: 'input#number_rider',
+    buildingField: 'input#building_rider',
+    streetField: 'input#street_rider',
+    districtField: 'input#district_rider',
+    zipcodeField: 'input#zipcode_rider',
+    brandField: 'input#brand-rider',
+    modelField: 'input#model_rider',
+    plateField: 'input#plate_number',
+    colorField: 'input#color_rider',
+    licenseNumField: 'input#licensenumber',
+    disabilityField: 'input#disability',
+    driverlcField: 'input#dropzone-license',
+    roadTaxField: 'input[name="or"]',
+    certRegField: 'input[name="cr"]',
+    vaccField: 'input[name="vaccine"]',
+    passwordField: 'input#password-rider',
+    verifyPasswordField: 'input#rider-confirm-password',
+    agreeCheckbox: 'input#agreeBox',
+    submitButton: 'button#submit-btn'
+}

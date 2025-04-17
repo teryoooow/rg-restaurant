@@ -6,13 +6,13 @@ const data = Cypress.env('data');
 const userInfo = Cypress.env('userInfo');
 const restoLoc = Cypress.env('restoLoc');
 
-describe('Registration Tests', () => {
+describe('Restaurant Registration Tests', () => {
     beforeEach(() => {
       // Visit the page before each test
       cy.visit('https://dev.rockygo.com/');
     });
   
-    it('should proceed to user information', () => {
+    it('should register restaurant', () => {
     // find and click application button
       cy.clickApplicationButton();
       // form fill-up
@@ -21,8 +21,7 @@ describe('Registration Tests', () => {
       cy.selectCountry();
       cy.get(regObjects.mobileNumberField).type(data.mobileNumber);
       // image upload
-      cy.clickBusinessPermit();
-      cy.clickCertificateOfRegistration();
+      cy.submitPermits();
       cy.clickNextButton();
       // User information
       cy.get(regUserObjects.firstNameField).first().type(userInfo.firstName, {force:true});
