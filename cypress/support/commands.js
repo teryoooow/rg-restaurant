@@ -39,8 +39,8 @@ Cypress.Commands.add('selectCountry', () => {
 })
 
 Cypress.Commands.add('submitPermits', () => {
-    cy.get(regObjects.businessPermitField).should('be.visible').selectFile('cypress/fixtures/sample.jpg');
-    cy.get(regObjects.certRegField).should('be.visible').selectFile('cypress/fixtures/sample.jpg');
+    cy.get(regObjects.businessPermitField).selectFile('cypress/fixtures/sample.jpg');
+    cy.get(regObjects.certRegField).selectFile('cypress/fixtures/sample.jpg');
 });
 
 Cypress.Commands.add('clickNextButton', () => {
@@ -70,12 +70,20 @@ Cypress.Commands.add('selectCountryCode', () => {
 })
 
 Cypress.Commands.add('attachDocu', () => {
-  cy.get(riderRegObjects.driverlcField).should('be.visible').selectFile('cypress/fixtures/sample.jpg');
-  cy.get(riderRegObjects.roadTaxField).should('be.visible').selectFile('cypress/fixtures/sample.jpg');
-  cy.get(riderRegObjects.certRegField).should('be.visible').selectFile('cypress/fixtures/sample.jpg');
-  cy.get(riderRegObjects.vaccField).should('be.visible').selectFile('cypress/fixtures/sample.jpg');
+  cy.get(riderRegObjects.driverlcField).invoke('show').should('be.visible').selectFile('cypress/fixtures/sample.jpg');
+  cy.get(riderRegObjects.roadTaxField).invoke('show').should('be.visible').selectFile('cypress/fixtures/sample.jpg');
+  cy.get(riderRegObjects.certRegField).invoke('show').should('be.visible').selectFile('cypress/fixtures/sample.jpg');
+  cy.get(riderRegObjects.vaccField).invoke('show').should('be.visible').selectFile('cypress/fixtures/sample.jpg');
 })
 
+Cypress.Commands.add('agreeAndSubmit', () => {
+  cy.get(riderRegObjects.agreeCheckbox).click();
+  cy.get(riderRegObjects.submitButton).first().click();
+})
+
+Cypress.Commands.add('assertSuccess', () => {
+  cy.get(riderRegObjects.confirmation).should('include.text', 'Success');
+})
 
 Cypress.on('uncaught:exception', (err, runnable) => {
     // return false to prevent Cypress from failing the test

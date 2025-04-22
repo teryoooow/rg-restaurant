@@ -4,7 +4,7 @@ import { riderRegObjects } from "../../pageObjects/pageObjects";
 //Configs
 const riderInfo = Cypress.env('riderInfo');
 
-describe('Restaurant Registration Tests', () => {
+describe('Rider Registration Tests', () => {
     beforeEach(() => {
       // Visit the page before each test
       cy.visit('https://dev.rockygo.com/');
@@ -35,6 +35,12 @@ describe('Restaurant Registration Tests', () => {
         //Disability optional
         //attach documents
         cy.attachDocu();
+        cy.get(riderRegObjects.passwordField).type(riderInfo.password)
+        cy.get(riderRegObjects.verifyPasswordField).type(riderInfo.verifyPassword);
+        // agree and submit
+        cy.agreeAndSubmit();
+        // assert successful registration
+        cy.assertSuccess();
 
     });
 

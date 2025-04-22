@@ -54,12 +54,13 @@ export const riderRegObjects = {
     colorField: 'input#color_rider',
     licenseNumField: 'input#licensenumber',
     disabilityField: 'input#disability',
-    driverlcField: 'input#dropzone-license',
+    driverlcField: 'label[class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg  bg-gray-50"]',
     roadTaxField: 'input[name="or"]',
     certRegField: 'input[name="cr"]',
     vaccField: 'input[name="vaccine"]',
     passwordField: 'input#password-rider',
     verifyPasswordField: 'input#rider-confirm-password',
     agreeCheckbox: 'input#agreeBox',
-    submitButton: 'button#submit-btn'
+    submitButton: 'button#submit-btn',
+    confirmation: 'div.swal2-popup swal2-modal swal2-icon-success swal2-show'
 }
