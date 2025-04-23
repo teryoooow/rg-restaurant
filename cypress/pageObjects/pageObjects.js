@@ -64,3 +64,12 @@ export const riderRegObjects = {
     submitButton: 'button#submit-btn',
     confirmation: 'div.swal2-popup swal2-modal swal2-icon-success swal2-show'
 }
+
+export const orderObjects = {
+    dine_inButton: 'a[href="https://staging.rockygo.com/order/index?order_type=dine-in&order_status=pending"]',
+    pick_upButton: 'a[href="https://staging.rockygo.com/order/index?order_type=pickup&order_status=pending"]',
+    deliveryButton: 'a[href="https://staging.rockygo.com/order/index?order_type=&order_status=pending"]',
+    processButton: 'button[data-val="processing"]',
+    serveButton: 'button[data-val="completed"]'
+
+}

@@ -23,7 +23,7 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
-import { loginObjects, regObjects, restoLocationObjects, riderRegObjects } from "../pageObjects/pageObjects";
+import { loginObjects, regObjects, restoLocationObjects, riderRegObjects, orderObjects } from "../pageObjects/pageObjects";
 // const filePath = 'sample.jpg';  // Uploaded on fixtures folder
 
 Cypress.Commands.add('clickLoginButton', () => {
@@ -84,6 +84,31 @@ Cypress.Commands.add('agreeAndSubmit', () => {
 Cypress.Commands.add('assertSuccess', () => {
   cy.get(riderRegObjects.confirmation).should('include.text', 'Success');
 })
+
+Cypress.Commands.add('processDine_inOrders', () => {
+  cy.get(orderObjects.dine_inButton).first().click();
+  cy.get(orderObjects.processButton).first().click();
+})
+
+Cypress.Commands.add('serveDine_inOrders', () => {
+  cy.get(orderObjects.dine_inButton).first().click();
+  cy.get(orderObjects.serveButton).first().click();
+})
+
+Cypress.Commands.add('processPick_upOrders', () => {
+  cy.get(orderObjects.pick_upButton).first().click();
+  cy.get(orderObjects.processButton).first().click();
+})
+
+Cypress.Commands.add('servePick_upOrders', () => {
+  cy.get(orderObjects.pick_upButton).first().click();
+  cy.get(orderObjects.serveButton).first().click();
+})
+
+Cypress.Commands.add('processDeliverOrders', () => {
+  cy.get(orderObjects.deliveryButton).first().click();
+  cy.get(orderObjects.processButton).first().click();
+});
 
 Cypress.on('uncaught:exception', (err, runnable) => {
     // return false to prevent Cypress from failing the test
